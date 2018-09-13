@@ -1,0 +1,5 @@
+{
+    "name": "@internal/redux",
+    "main": "index",
+    "version": "0.1.0"
+}
