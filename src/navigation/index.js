@@ -1,27 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-    NavLink,
-    // Route,
+    Route,
     Switch,
 } from "react-router-dom";
 import { hot } from "react-hot-loader";
 
+import Home from '@internal/containers/MainPage/HomeContainer';
+import New from '@internal/containers/MainPage/NewContainer';
+// import {
+//     NavBar,
+//     Header,
+//     Footer,
+// } from '@internal/ui';
+import {
+    AppConfig,
+} from '@internal/constants';
 
 class App extends React.Component {
     render() {
-        const activeStyle = { color: 'blue' };
         return (
             <div>
-                <div>
-                <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
-                {' | '}
-                <NavLink to="/fuel-savings" activeStyle={activeStyle}>Demo App</NavLink>
-                {' | '}
-                <NavLink to="/about" activeStyle={activeStyle}>About</NavLink>
-                </div>
+                {/* <Header />
+                <NavBar /> */}
                 <Switch>
+                    <Route
+                        path={AppConfig.route.home}
+                        component={Home}
+                        exact
+                    />
+                    <Route
+                        path={AppConfig.route.new}
+                        component={New}
+                        exact
+                    />
                 </Switch>
+                {/* <Footer /> */}
             </div>
         );
     }
