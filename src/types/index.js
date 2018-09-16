@@ -1,7 +1,7 @@
 import {
     string,
     shape,
-} from 'prop-types';
+} from 'prop-types'
 
 const types = {
     task: shape({
@@ -11,4 +11,4 @@ const types = {
     }),
 }
 
-export default types;
+export default types

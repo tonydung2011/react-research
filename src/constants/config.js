@@ -3,4 +3,4 @@ export default {
         home: '/',
         new: '/new',
     }
-};
+}

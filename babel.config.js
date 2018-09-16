@@ -1,5 +1,5 @@
 module.exports = function config(api) {
-    api.cache(true);
+    api.cache(true)
     switch (process.env.NODE_ENV) {
         case 'development':
             return {
@@ -40,7 +40,7 @@ module.exports = function config(api) {
                     '@babel/plugin-proposal-class-properties'
                 ],
             }
-            
+
         default:
             return {
                 presets: [

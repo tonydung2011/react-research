@@ -1,21 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 import {
     Route,
     Switch,
-} from "react-router-dom";
-import { hot } from "react-hot-loader";
+} from 'react-router-dom'
+import { hot } from 'react-hot-loader'
 
-import Home from '@internal/containers/MainPage/HomeContainer';
-import New from '@internal/containers/MainPage/NewContainer';
+import Home from '@internal/containers/MainPage/HomeContainer'
+import New from '@internal/containers/MainPage/NewContainer'
 // import {
 //     NavBar,
 //     Header,
 //     Footer,
-// } from '@internal/ui';
+// } from '@internal/ui'
 import {
     AppConfig,
-} from '@internal/constants';
+} from '@internal/constants'
 
 class App extends React.Component {
     render() {
@@ -37,12 +37,12 @@ class App extends React.Component {
                 </Switch>
                 {/* <Footer /> */}
             </div>
-        );
+        )
     }
 }
 
 App.propTypes = {
   children: PropTypes.element
-};
+}
 
-export default hot(module)(App);
+export default hot(module)(App)

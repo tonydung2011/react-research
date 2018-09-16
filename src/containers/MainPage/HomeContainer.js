@@ -1,13 +1,13 @@
 import {
     connect,
-} from 'react-redux';
+} from 'react-redux'
 
-import HomeView from './HomeView';
+import HomeView from './HomeView'
 
 const mapStateToProps = () => ({
 
-});
+})
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView)

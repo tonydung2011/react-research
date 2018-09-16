@@ -1,9 +1,9 @@
 import {
     combineReducers,
-} from 'redux';
+} from 'redux'
 
-import task from './todo/reducer';
+import task from './todo/reducer'
 
-export default  combineReducers({
-	task,
-});
+export default combineReducers({
+    task,
+})
