@@ -6,7 +6,7 @@ import AppNavigation from '@internal/navigation'
 
 export default class Root extends Component {
     render() {
-        const { store, history } = this.props
+        const {store, history } = this.props
         return (
             <Provider store={store}>
                 <ConnectedRouter history={history}>
@@ -15,7 +15,7 @@ export default class Root extends Component {
             </Provider>
         )
     }
-};
+}
 
 Root.propTypes = {
     store: PropTypes.object.isRequired,
