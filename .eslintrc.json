@@ -1,8 +1,9 @@
 {
     "extends": ["standard", "standard-react"],
     "rules": {
-        "indent": ["warn", 4],
-        "react/jsx-indent": ["error", 4],
+        "indent": "off",
+        "no-tabs": "off",
+        "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",
         "comma-dangle": "off",
         "space-before-function-paren": "off"
