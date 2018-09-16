@@ -13,11 +13,11 @@ import {
 export default class New extends Component {
 	render = () => (
 		<div>
-            <input type="text" name="title" placeholder="Title"/>
-            <input type="text" name="detail" placeholder="Detail"/>
+            <input type='text' name='title' placeholder='Title' />
+            <input type='text' name='detail' placeholder='Detail' />
             <Button
-                variant="contained"
-                color="primary"
+                variant='contained'
+                color='primary'
             >
                 {AppLang.content.page.new.subit}
             </Button>
