@@ -2,7 +2,7 @@ import {
     connect,
 } from 'react-redux';
 
-import HomeView from './HomeView';
+import NewView from './NewView';
 
 const mapStateToProps = () => ({
 
@@ -10,4 +10,4 @@ const mapStateToProps = () => ({
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
+export default connect(mapStateToProps, mapDispatchToProps)(NewView);

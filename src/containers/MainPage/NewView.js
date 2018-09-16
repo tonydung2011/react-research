@@ -9,7 +9,7 @@ import {
     AppConfig,
 } from '@internal/constants';
 
-export default class Home extends Component {
+export default class New extends Component {
 	render = () => (
 		<div>
             <input type="text" name="title" placeholder="Title"/>

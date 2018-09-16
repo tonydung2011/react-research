@@ -25,13 +25,13 @@ class App extends React.Component {
                 <NavBar /> */}
                 <Switch>
                     <Route
-                        path={AppConfig.route.home}
-                        component={Home}
+                        path={AppConfig.route.new}
+                        component={New}
                         exact
                     />
                     <Route
-                        path={AppConfig.route.new}
-                        component={New}
+                        path={AppConfig.route.home}
+                        component={Home}
                         exact
                     />
                 </Switch>

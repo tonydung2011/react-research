@@ -36,7 +36,7 @@ function configureStoreDev(initialState) {
     const reactRouterMiddleware = routerMiddleware(history);
     const middlewares = [
         reduxImmutableStateInvariant(),
-        createLogger,
+        createLogger(),
         thunk,
         reactRouterMiddleware,
     ];
