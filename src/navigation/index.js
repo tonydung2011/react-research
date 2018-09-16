@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {
     Route,
     Switch,
@@ -39,10 +38,6 @@ class App extends React.Component {
             </div>
         )
     }
-}
-
-App.propTypes = {
-  children: PropTypes.element
 }
 
 export default hot(module)(App)
