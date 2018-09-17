@@ -12,7 +12,7 @@ import {
 export default class Home extends Component {
 	render = () => (
 			<div>
-				<h1>React Slingshot</h1>
+				<h1>React Research</h1>
 
 				<h2>Get Started</h2>
 				<h2>Hello world</h2>

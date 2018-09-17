@@ -1,36 +1,29 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: rambabusaravanan/firebase
+    build:
+        docker:
+            - image: rambabusaravanan/firebase
 
-    branches:
-      only:
-        - TMDT
+        filters:
+            branches:
+                only:
+                    - TMDT
 
-    working_directory: ~/src
+        working_directory: ~/src
 
-    steps:
-      - checkout
+        steps:
+            - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - run: npm install
 
-      - run: npm install
+            - run: npm run build:ci
 
-      - run: npm run build:ci
+            - run: firebase use react-research-bdd27 --token $FIREBASE_TOKEN
 
-      - run: firebase use react-research-bdd27 --token $FIREBASE_TOKEN
+            - run: firebase deploy --only hosting -m "Deploy by Circle CI" --token $FIREBASE_TOKEN
 
-      - run: firebase deploy --only hosting -m "Deploy by Circle CI" --token $FIREBASE_TOKEN
+            - save_cache:
+                paths:
+                    - node_modules
+                key: v1-dependencies-{{ checksum "package.json" }}
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
