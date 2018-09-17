@@ -1,13 +1,12 @@
 version: 2
-general:
-  branches:
-    only:
-      - TMDT
-
 jobs:
   build:
     docker:
       - image: rambabusaravanan/firebase
+
+    branches:
+      only:
+        - TMDT
 
     working_directory: ~/src
 
