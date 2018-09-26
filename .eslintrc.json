@@ -17,6 +17,7 @@
         "react/jsx-indent": "off",
         "react/jsx-indent-props": "off",
         "comma-dangle": "off",
-        "space-before-function-paren": "off"
+        "space-before-function-paren": "off",
+        "semi": "warn"
     }
 }

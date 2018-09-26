@@ -28,7 +28,7 @@ function configureStoreProd(initialState) {
     return createStore(
         connectRouterHistory(rootReducer),
         initialState,
-        compose(applyMiddleware(...middlewares))
+        compose(applyMiddleware(...middlewares)),
     )
 }
 
@@ -36,16 +36,16 @@ function configureStoreDev(initialState) {
     const reactRouterMiddleware = routerMiddleware(history)
     const middlewares = [
         reduxImmutableStateInvariant(),
-        createLogger(),
         thunk,
         reactRouterMiddleware,
+        createLogger(),
     ]
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     const store = createStore(
         connectRouterHistory(rootReducer),
         initialState,
-        composeEnhancers(applyMiddleware(...middlewares))
+        composeEnhancers(applyMiddleware(...middlewares)),
     )
 
     if (module.hot) {
