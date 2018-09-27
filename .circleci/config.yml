@@ -32,6 +32,5 @@ jobs:
             - save_cache:
                 paths:
                     - node_modules
-                    - dist
                 key: v1-dependencies-{{ checksum "package.json" }}
 
