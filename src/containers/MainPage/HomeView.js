@@ -12,7 +12,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Divider from '@material-ui/core/Divider'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import TocIcon from '@material-ui/icons/toc'
+import TocIcon from '@material-ui/icons/Toc'
 import Typography from '@material-ui/core/Typography';
 
 import PropTypes from 'prop-types'

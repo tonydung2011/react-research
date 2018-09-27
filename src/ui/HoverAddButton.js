@@ -1,7 +1,7 @@
 import React from 'react'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import withStyles from '@material-ui/core/styles/withStyles'
-import AddIcon from '@material-ui/icons/add'
+import AddIcon from '@material-ui/icons/Add'
 import PropTypes from 'prop-types'
 
 import {
