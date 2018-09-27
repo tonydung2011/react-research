@@ -11,8 +11,7 @@ cache:
 deploy-prod:
   stage: deploy
   only:
-    - TMDT-release
-    - HTTT-release
+    - master
   script:
     - npm i
     - npm run build:ci
