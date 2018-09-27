@@ -4,10 +4,11 @@ jobs:
         docker:
             - image: rambabusaravanan/firebase
 
-        filters:
+        build:
             branches:
                 only:
-                    - TMDT
+                    - master
+                    - tmdt-release
 
         working_directory: ~/src
 
