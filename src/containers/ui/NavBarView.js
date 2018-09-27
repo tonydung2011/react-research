@@ -12,8 +12,8 @@ import SearchIcon from '@material-ui/icons/Search'
 import BackIcon from '@material-ui/icons/ArrowBack'
 import { styles } from '@internal/styles'
 import {
-    Actions,
-} from 'react-router-dom';
+    withRouter,
+} from 'react-router-dom'
 
 class NavBar extends React.Component {
     static propTypes = {
@@ -21,20 +21,22 @@ class NavBar extends React.Component {
         classes: PropTypes.object.isRequired,
         title: PropTypes.string,
         isHome: PropTypes.bool,
+        history: PropTypes.object.isRequired,
     }
 
     static defaultProps = {
         toggleDrawer: () => {},
         classes: {},
         title: 'Home',
-        isHome: true,
+        isHome: false,
+        history: {},
     }
 
     toggleDrawer = () => this.props.toggleDrawer()
 
     render = () => (
         <AppBar
-            position='absolute'
+            position={this.props.isHome ? 'absolute' : 'static'}
         >
             <Toolbar>
                 {
@@ -50,7 +52,7 @@ class NavBar extends React.Component {
                         <IconButton
                             color='inherit'
                             aria-label='Menu'
-                            onClick={Actions.pop}
+                            onClick={this.props.history.goBack}
                         >
                             <BackIcon />
                         </IconButton>
@@ -75,4 +77,4 @@ class NavBar extends React.Component {
     )
 }
 
-export default withStyles(styles.ui.navbar)(NavBar)
+export default withStyles(styles.ui.navbar)(withRouter(NavBar))

@@ -1,12 +1,12 @@
 import React from 'react'
 import ButtonBase from '@material-ui/core/ButtonBase'
-import withStyles from '@material-ui/core/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles'
 import AddIcon from '@material-ui/icons/add'
 import PropTypes from 'prop-types'
 
 import {
     styles,
-} from '@internal/styles';
+} from '@internal/styles'
 
 const HoverAddButon = ({
     callback, classes,
@@ -19,9 +19,7 @@ const HoverAddButon = ({
             }
         }}
     >
-        <div>
-            <AddIcon color='disable' className='addIcon' />
-        </div>
+        <AddIcon color='inherit' className='addIcon' />
     </ButtonBase>
 )
 

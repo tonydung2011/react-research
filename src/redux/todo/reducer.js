@@ -1,4 +1,6 @@
-const initState = []
+const initState = {
+    task: []
+}
 
 export default function taskReducer(state = initState, action) {
     switch (action.type) {

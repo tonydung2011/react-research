@@ -2,7 +2,7 @@ import {
     connect,
 } from 'react-redux'
 
-import * as DrawerActions from '@internal/redux/drawer/actions';
+import * as DrawerActions from '@internal/redux/drawer/actions'
 import Drawer from './DrawerView'
 
 const mapStateToProps = state => ({

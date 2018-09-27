@@ -1,6 +1,6 @@
 const windowResizeListener = (calback) => {
     window.addEventListener('resize', (event) => {
-        console.log('window resize to', event);
+        console.log('window resize to', event)
 
         if (calback && typeof calback === 'function') {
             calback({
@@ -14,7 +14,7 @@ const windowResizeListener = (calback) => {
 const init = ({
     windowOnresizeCallback,
 }) => {
-    windowResizeListener(windowOnresizeCallback);
+    windowResizeListener(windowOnresizeCallback)
 }
 
 export default {

@@ -1,4 +1,4 @@
-import colors from '../colors';
+import colors from '../colors'
 
 export default {
     imgBackground: {
@@ -23,5 +23,21 @@ export default {
     },
     addIcon: {
         color: colors.white,
+    },
+    listItemText: {
+        primary: {
+            title: {
+                // fontFamily: 'Roboto',
+                fontSize: 22,
+                color: colors.primary,
+            }
+        },
+        secondary: {
+            body1: {
+                // fontFamily: 'Roboto',
+                fontSize: 16,
+                color: colors.dark,
+            }
+        }
     }
 }

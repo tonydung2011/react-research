@@ -4,7 +4,7 @@ import {
 import HomeView from './HomeView'
 
 const mapStateToProps = state => ({
-    todoList: state.task,
+    taskList: state.task.task,
 })
 
 const mapDispatchToProps = {

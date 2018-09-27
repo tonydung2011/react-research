@@ -1,0 +1,230 @@
+.pad5 {
+    padding: 5px
+}
+
+.padTop5 {
+    padding-top: 5px
+}
+
+.padBottom5 {
+    padding-bottom: 5px
+}
+
+.padLeft5 {
+    padding-left: 5px
+}
+
+.padRight5 {
+    padding-right: 5px
+}
+
+.padX5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.padY5 {
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+.pad10 {
+    padding: 10px
+}
+
+.padTop10 {
+    padding-top: 10px
+}
+
+.padBottom10 {
+    padding-bottom: 10px
+}
+
+.padLeft10 {
+    padding-left: 10px
+}
+
+.padRight10 {
+    padding-right: 10px
+}
+
+.padX10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.padY10 {
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+.pad15 {
+    padding: 15px
+}
+
+.padTop15 {
+    padding-top: 15px
+}
+
+.padBottom15 {
+    padding-bottom: 15px
+}
+
+.padLeft15 {
+    padding-left: 15px
+}
+
+.padRight15 {
+    padding-right: 15px
+}
+
+.padX15 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.padY15 {
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+.margin20 {
+    margin: 20px
+}
+
+.marginTop20 {
+    margin-top: 20px
+}
+
+.marginBottom20 {
+    margin-bottom: 20px
+}
+
+.marginLeft20 {
+    margin-left: 20px
+}
+
+.marginRight20 {
+    margin-right: 20px
+}
+
+.marginX20 {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.marginY20 {
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.margin40 {
+    margin: 40px
+}
+
+.marginTop40 {
+    margin-top: 40px
+}
+
+.marginBottom40 {
+    margin-bottom: 40px
+}
+
+.marginLeft40 {
+    margin-left: 40px
+}
+
+.marginRight40 {
+    margin-right: 40px
+}
+
+.marginX40 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.marginY40 {
+    margin-top: 40px;
+    margin-bottom: 40px
+}
+
+.lowShadow {
+    box-shadow: 3px 3px 1px rgb(184,184,184)
+}
+
+.mediumShadow {
+    box-shadow: 6px 6px 3px rgb(184,184,184)
+}
+
+.highShadow {
+    box-shadow: 12px 12px 5px rgb(184,184,184)
+}
+
+.middleContent {
+    justify-content: center;
+    align-items: center;
+}
+
+.justifyContent {
+    justify-content: center;
+}
+
+.alighItemsCenter {
+    align-items: center
+}
+
+.flexColum {
+    flex-direction: column
+}
+
+.flexRow {
+    flex-direction: row
+}
+
+.fontDefault {
+    font-family: 'Roboto';
+}
+
+.textBold {
+    font-weight: bold
+}
+
+.textColorWhite {
+    color: white
+}
+
+.textColorDanger {
+    color: #EC0C1C
+}
+
+.textColorPrimary {
+    color: #2C5EF3
+}
+
+.textColorDark {
+    color: #041413
+}
+
+.textListItemSecondaryText {
+    font-size: 14px;
+    font-weight: 200;
+    font-family: 'Roboto'
+}
+
+.textListItemPrimaryText {
+    font-size: 22px;
+    font-weight: 300;
+    font-family: 'Roboto'
+}
+
+.textCardHeader {
+    font-size: 22px;
+    font-weight: 300;
+    font-family: 'Roboto'
+}
+
+.textCardContent {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Roboto'
+}

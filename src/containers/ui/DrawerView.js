@@ -1,11 +1,10 @@
 import React from 'react'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Drawer from '@material-ui/core/Drawer'
+import withStyles from '@material-ui/core/styles/withStyles'
 import {
-    Drawer,
-    ListItem,
-    withStyles,
-} from '@material-ui/core'
-import {
-    Link,
+    withRouter,
 } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -21,12 +20,19 @@ class SideMenu extends React.Component {
         open: PropTypes.bool.isRequired,
         toggleDrawer: PropTypes.func.isRequired,
         classes: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired,
     }
 
     static defaultProps = {
         open: false,
         toggleDrawer: () => {},
         classes: {},
+        history: {},
+    }
+
+    navigateToNewTask = () => {
+        this.props.toggleDrawer()
+        this.props.history.push(AppConfig.route.newTodo)
     }
 
     render = () => (
@@ -38,16 +44,17 @@ class SideMenu extends React.Component {
             <div
                 className={this.props.classes.drawerContainer}
             >
-                <ListItem>
-                    <Link
-                        to={AppConfig.route.newTodo}
-                    >
+                <ListItem
+                    button
+                    onClick={this.navigateToNewTask}
+                >
+                    <ListItemText>
                         {AppLang.content.ui.drawer.newTodo}
-                    </Link>
+                    </ListItemText>
                 </ListItem>
             </div>
         </Drawer>
     )
 }
 
-export default withStyles(styles.ui.drawer)(SideMenu)
+export default withStyles(styles.ui.drawer)(withRouter(SideMenu))

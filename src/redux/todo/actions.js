@@ -1,7 +1,7 @@
 import _ from 'lodash'
 
 const addTask = task => (dispatch, getState) => {
-    const taskList = getState().task
+    const taskList = getState().task.task
     return dispatch({
         type: 'ADD_TASK',
         data: [
@@ -12,7 +12,7 @@ const addTask = task => (dispatch, getState) => {
 }
 
 const removeTask = taskID => (dispatch, getState) => {
-    const taskList = getState().task
+    const taskList = getState().task.task
     return dispatch({
         type: 'REMOVE_TASK',
         data: _.filter(taskList, task => task.id !== taskID),

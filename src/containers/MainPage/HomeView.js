@@ -12,8 +12,8 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Divider from '@material-ui/core/Divider'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import CardHeader from '@material-ui/core/CardHeader'
 import TocIcon from '@material-ui/icons/toc'
+import Typography from '@material-ui/core/Typography';
 
 import PropTypes from 'prop-types'
 
@@ -25,28 +25,14 @@ import {
     styles,
 } from '@internal/styles'
 import {
-    ListenerLib,
-} from '@internal/lib'
-import {
     HoverAddButton,
-} from '@internal/ui';
+} from '@internal/ui'
 
 class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            taskList: [
-                {
-                    title: 'Bob',
-                    text: 'hi, what your name?',
-                    id: '1',
-                },
-                {
-                    title: 'Laura',
-                    text: 'hello',
-                    id: '2',
-                }
-            ],
+            taskList: [],
             usingCardItem: window.innerWidth > 600,
         }
     }
@@ -54,22 +40,30 @@ class Home extends Component {
     static propTypes = {
         taskList: PropTypes.array.isRequired,
         classes: PropTypes.object.isRequired,
+        toggleDrawer: PropTypes.func.isRequired,
+        history: PropTypes.object.isRequired,
     }
 
     static defaultProps = {
         taskList: [],
+        toggleDrawer: () => {},
+        history: {},
     }
 
     componentDidMount = () => {
-        // this.setState({
-        //     taskList: this.props.taskList,
-        // })
-        ListenerLib.windowResizeListener(({ width }) => {
-                this.setState({
-                usingCardItem: width > 600,
-            })
+        this.setState({
+            taskList: this.props.taskList,
         })
+        window.addEventListener('resize', this.updateCard)
     }
+
+    componentWillUnmount = () => {
+        window.removeEventListener('resize', this.updateCard)
+    }
+
+    updateCard = e => this.setState({
+        usingCardItem: e.target.innerWidth > 600
+    })
 
     componentWillReceiveProps = (nextProps) => {
         if (nextProps.taskList !== this.props.taskList) {
@@ -77,6 +71,11 @@ class Home extends Component {
                 taskList: nextProps.taskList,
             })
         }
+    }
+
+    navigateToNewTask = () => {
+        this.props.toggleDrawer()
+        this.props.history.push(AppConfig.route.newTodo)
     }
 
     renderItem = item => {
@@ -94,11 +93,13 @@ class Home extends Component {
                             ref={itemRef}
                             className={this.props.classes.itemHover}
                         >
-                            <CardHeader>
-                                {item.id}
-                            </CardHeader>
                             <CardContent>
-                                {item.text}
+                                <p className='textCardHeader textColorPrimary'>
+                                    {item.title}
+                                </p>
+                                <p className='textCardContent textColorDark'>
+                                    {item.content}
+                                </p>
                             </CardContent>
                         </Card>
                     ) : (
@@ -106,16 +107,18 @@ class Home extends Component {
                             button
                             className={this.props.classes.listItemContainer}
                         >
-                            <ListItemIcon
-                                className={this.props.classes.listItemIcon}
-                            >
+                            <ListItemIcon>
                                 <TocIcon />
                             </ListItemIcon>
                             <ListItemText
-                                className={this.props.classes.listItemText}
-                            >
-                                {item.text}
-                            </ListItemText>
+                                classes={styles.pages.home.listItemText}
+                                primary={(
+                                    <Typography variant='display1' noWrap >{item.title}</Typography>
+                                )}
+                                secondary={(
+                                    <Typography variant='body2' noWrap >{item.content}</Typography>
+                                )}
+                            />
                         </ListItem>
                     )
                 }
@@ -125,7 +128,7 @@ class Home extends Component {
 
 	render = () => (
         <div>
-            <NavBar title={AppLang.content.page.home.title} />
+            <NavBar isHome title={AppLang.content.page.home.title} />
             <Grid
                 container
             >
@@ -145,12 +148,12 @@ class Home extends Component {
                         className={this.props.classes.listWrapper}
                     >
                         <Divider />
-                        {this.state.taskList.map(this.renderItem)}
+                        {this.state.taskList.map(item => this.renderItem(item))}
                     </Grid>
                 </Grid>
                 <Grid item xs={false} md={2} />
             </Grid>
-            <HoverAddButton />
+            <HoverAddButton callback={this.navigateToNewTask} />
         </div>
 	)
 }

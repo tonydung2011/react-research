@@ -1,4 +1,4 @@
-import ListenerLib from './listener';
+import ListenerLib from './listener'
 
 export {
     ListenerLib,

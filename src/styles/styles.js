@@ -1,15 +1,15 @@
 import master from './master'
-import styleGuide from './styleGuide'
 import home from './pages/home'
+import news from './pages/new'
 import navbar from './ui/navbar'
 import drawer from './ui/drawer'
-import hoverButton from './ui/hoverButton';
+import hoverButton from './ui/hoverButton'
 
 export default {
     master,
-    styleGuide,
     pages: {
         home,
+        news,
     },
     ui: {
         navbar,

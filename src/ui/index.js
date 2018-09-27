@@ -1,4 +1,4 @@
-import HoverAddButton from './HoverAddButton';
+import HoverAddButton from './HoverAddButton'
 
 export {
     HoverAddButton,
