@@ -25,7 +25,8 @@
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watchAll",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "reset-cache": "rm -rf node_modules && npm install && npm start -- --reset-cache"
   },
   "author": "Dung Tran",
   "license": "MIT",
@@ -41,8 +42,10 @@
     "@internal/ui": "file:src/ui",
     "@material-ui/core": "3.0.3",
     "@material-ui/icons": "3.0.1",
+    "classnames": "2.2.6",
     "connected-react-router": "4.4.1",
     "lodash": "4.17.11",
+    "moment": "2.22.2",
     "object-assign": "4.1.1",
     "react": "16.4.2",
     "react-dom": "16.4.2",
