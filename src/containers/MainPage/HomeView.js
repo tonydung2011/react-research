@@ -33,7 +33,7 @@ class Home extends Component {
         super(props)
         this.state = {
             taskList: [],
-            usingCardItem: window.innerWidth > 960,
+            usingCardItem: window.innerWidth > 600,
         }
     }
 
@@ -62,7 +62,7 @@ class Home extends Component {
     }
 
     updateCard = e => this.setState({
-        usingCardItem: e.target.innerWidth > 960
+        usingCardItem: e.target.innerWidth > 600
     })
 
     componentWillReceiveProps = (nextProps) => {
@@ -84,7 +84,7 @@ class Home extends Component {
             <Grid
                 item
                 xs={12}
-                lg={4}
+                md={4}
                 key={item.id}
             >
                 {
@@ -136,7 +136,7 @@ class Home extends Component {
                 <Grid
                     item
                     xs={12}
-                    lg={8}
+                    md={8}
                 >
                     <img
                         src={AppConfig.img.homeBackground}

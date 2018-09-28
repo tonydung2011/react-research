@@ -4,6 +4,6 @@ export default {
         newTodo: '/new_to_do',
     },
     img: {
-        homeBackground: 'http://www.wallpaperbetter.com/wallpaper/835/1021/121/artwork-mountain-trees-720P-wallpaper-middle-size.jpg',
+        homeBackground: 'https://hdqwalls.com/download/autumn-season-tree-4k-artwork-painting-5v-1360x768.jpg',
     }
 }
