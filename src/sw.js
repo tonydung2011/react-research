@@ -1,7 +1,6 @@
 
 /* eslint-disable no-undef */
 const CACHE = 'pwa-react-research'
-// const domainName = window.location.host
 const route = [
     '/',
     '/index.html',
@@ -20,11 +19,22 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', (evt) => {
     console.log(`[PWA Builder] The service worker is serving the asset ${evt.request.url}`)
-    if (evt.request.headers.get('Content-Type') === 'application/json; charset=utf-8') {
-        evt.respondWith(fromServer(evt.request))
-    } else {
+    if (
+        evt.request.url.endsWith('.js') ||
+        evt.request.url.endsWith('.html') ||
+        evt.request.url.endsWith('.css') ||
+        evt.request.url.endsWith('.css.map') ||
+        evt.request.url.endsWith('.js.map') ||
+        evt.request.url.endsWith('.wolf') ||
+        evt.request.url.endsWith('.wolf2') ||
+        evt.request.url.endsWith('.jpg') ||
+        evt.request.url.endsWith('.png') ||
+        evt.request.url.endsWith('.jpeg')
+    ) {
         evt.respondWith(fromCache(evt.request))
         update(evt.request)
+    } else {
+        evt.respondWith(fromServer(evt.request))
     }
 })
 
