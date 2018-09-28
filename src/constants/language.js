@@ -1,7 +1,8 @@
 export default {
     msg: {
         error: {
-
+            invalidRequest: 'Bad request',
+            networkError: 'Fail to connect to server. Please check your internet status',
         },
         warning: {
 

@@ -7,6 +7,7 @@ import '@internal/styles/styleguide.css'
 import App from './app'
 import './favicon.ico'
 import 'typeface-roboto'
+import serviceWorker from '@internal/service_worker'
 const store = configureStore()
 
 render(
@@ -37,3 +38,5 @@ if (module.hot) {
         )
     })
 }
+
+serviceWorker()

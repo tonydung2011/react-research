@@ -13,7 +13,7 @@ import Divider from '@material-ui/core/Divider'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import TocIcon from '@material-ui/icons/Toc'
-import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography'
 
 import PropTypes from 'prop-types'
 
@@ -33,7 +33,7 @@ class Home extends Component {
         super(props)
         this.state = {
             taskList: [],
-            usingCardItem: window.innerWidth > 600,
+            usingCardItem: window.innerWidth > 960,
         }
     }
 
@@ -62,7 +62,7 @@ class Home extends Component {
     }
 
     updateCard = e => this.setState({
-        usingCardItem: e.target.innerWidth > 600
+        usingCardItem: e.target.innerWidth > 960
     })
 
     componentWillReceiveProps = (nextProps) => {
@@ -84,7 +84,7 @@ class Home extends Component {
             <Grid
                 item
                 xs={12}
-                sm={4}
+                lg={4}
                 key={item.id}
             >
                 {
@@ -136,7 +136,7 @@ class Home extends Component {
                 <Grid
                     item
                     xs={12}
-                    md={8}
+                    lg={8}
                 >
                     <img
                         src={AppConfig.img.homeBackground}
