@@ -4,8 +4,7 @@ const CACHE = 'pwa-react-research'
 // const domainName = window.location.host
 const route = [
     '/',
-    '/new_to_do',
-    '/offline',
+    '/index.html',
 ]
 
 self.addEventListener('install', event => event.waitUntil(
@@ -30,7 +29,7 @@ self.addEventListener('fetch', (evt) => {
 })
 
 const fromCache = (request) => new Promise((resolve, reject) =>
-    caches.open(CACHE).then(cache => cache.match(request))
+    caches.open(CACHE).then(cache => cache.match(request)).then(res => res || fromServer(request))
 )
 
 const update = (request) => new Promise((resolve, reject) =>
