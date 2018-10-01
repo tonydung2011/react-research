@@ -9,6 +9,7 @@ jobs:
                 only:
                     - master
                     - tmdt-release
+                    - portfolio-release
 
         working_directory: ~/src
 
