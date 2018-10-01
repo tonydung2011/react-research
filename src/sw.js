@@ -1,14 +1,18 @@
 
 /* eslint-disable no-undef */
 const CACHE = 'pwa-react-research'
+const url = [
+    'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
+    'https://fonts.googleapis.com/icon?family=Material+Icons',
+]
+
 const route = [
-    '/',
-    '/index.html',
+    'http://localhost:4000/',
 ]
 
 self.addEventListener('install', event => event.waitUntil(
     caches.open(CACHE)
-        .then(cache => cache.addAll(route))
+        .then(cache => cache.addAll(url))
         .then(() => self.skipWaiting())
 ))
 
@@ -25,25 +29,35 @@ self.addEventListener('fetch', (evt) => {
         evt.request.url.endsWith('.css') ||
         evt.request.url.endsWith('.css.map') ||
         evt.request.url.endsWith('.js.map') ||
-        evt.request.url.endsWith('.wolf') ||
-        evt.request.url.endsWith('.wolf2') ||
+        evt.request.url.endsWith('.woff') ||
+        evt.request.url.endsWith('.woff2') ||
         evt.request.url.endsWith('.jpg') ||
         evt.request.url.endsWith('.png') ||
-        evt.request.url.endsWith('.jpeg')
+        evt.request.url.endsWith('.jpeg') ||
+        route.indexOf(evt.request.url) !== -1
     ) {
-        evt.respondWith(fromCache(evt.request))
-        update(evt.request)
+        evt.respondWith(updateCache(evt.request))
     } else {
         evt.respondWith(fromServer(evt.request))
     }
 })
 
-const fromCache = (request) => new Promise((resolve, reject) =>
-    caches.open(CACHE).then(cache => cache.match(request)).then(res => res || fromServer(request))
-)
+const fromCache = (request) =>
+    caches.open(CACHE).then(cache => cache.match(request))
 
-const update = (request) => new Promise((resolve, reject) =>
-    caches.open(CACHE).then(cache => fetch(request).then(response => cache.put(request, response)))
-)
+const updateCache = (request) => fromCache(request)
+    .then((response) => {
+        if (response) {
+            return response
+        }
+        return fetch(request)
+    })
+    .then((response) => {
+        const cloneRes = response.clone()
+        if (request.method === 'GET') {
+            caches.open(CACHE).then(cache => cache.put(request, cloneRes))
+        }
+        return response
+    })
 
 const fromServer = (request) => fetch(request)
