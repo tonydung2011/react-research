@@ -3,8 +3,8 @@ this is base repository for clonning react application
 
 ### Requirement:
 
-Node js install
-visual studio CODE install
+Node js install  
+visual studio CODE install  
 
 ## extension:
 
@@ -51,23 +51,23 @@ It will generate a static web client. This static then will be host into an file
 **Create a new page:**
 
 1. in folder src/containers/MainPage add 2 file
-
+```
     NewScreenView.js
     NewScreenContainer.js
-
+```
 copy the same structure in HomeView.js into NewScreenView.js and HomeContainer.js into NewScreenContainer.js
 --> start styling in NewScreenView.js
 
 2. Add the url to src/constants/config.js file
-
+```
     route: {
         home: '/',
         new: '/new',
         newScreen: '/newScreen',
     }
-
+```
 3. Add to navigation/index.js your new route
-
+```
     import Home from '@internal/containers/MainPage/HomeContainer'
     import New from '@internal/containers/MainPage/NewContainer'
     import NewScreen from '@internal/containers/MainPage/NewScreenContainer'
@@ -77,15 +77,15 @@ copy the same structure in HomeView.js into NewScreenView.js and HomeContainer.j
         component={NewScreen}
         exact
     />
-
+```
 4. Then add the navigation link from the screen you want to connected. for example, I want to start from home screen:
-
+```
     <ol>
         <li>Review the <Link to={AppConfig.route.new} >demo app</Link></li>
         <li>Review the <Link to={AppConfig.route.newScreen} >New Screen</Link></li>
         <li>Remove the demo and start coding: npm run remove-demo</li>
     </ol>
-
+```
 That's all
 There is a hot loader which will auto refresh the page, allow you to see your immediate saved chage in browser. This will speed up developmemnt process
 
@@ -93,8 +93,8 @@ There is a hot loader which will auto refresh the page, allow you to see your im
 
 in folder src/redux create a folder <your-action>
 add actions.js and reducer.js
-copy the structure of todo/actions.js -> <your-folder>/actions.js
-copy the structure of todo/reducer.js -> <your-folder>/reducer.js
+copy the structure of ```todo/actions.js``` -> ```<your-folder>/actions.js```
+copy the structure of ```todo/reducer.js``` -> ```<your-folder>/reducer.js```
 modify as your wish
 
 more knowledge about redux: https://www.google.com.vn/search?q=redux+tutorial+react
@@ -106,7 +106,7 @@ You just need to understand the basic concept then copy the code of this example
 and custom styling in src/styles/styles.css
 - There are 3 ways of styling you can use in our project:
 + className styling: You can either define your style in styleguide.css and add it to your component throught out the className property. This only work with html component
-+ className styling for Material component: You define set of style in folder theme/pages/<ContainerName>.js or theme/ui/<ComponentName>.js
++ className styling for Material component: You define set of style in folder ```theme/pages/<ContainerName>.js``` or ```theme/ui/<ComponentName>.js```
 
 ```
     export default {
@@ -128,5 +128,5 @@ don't forget to ```import withStyles from '@material-ui/core/styles/withStyles``
 
 ### FAQ
 
-Q: after installing a dependency my application fail to load. the terminal appear to be fail when parsing ES6 syntax
-A: You can run ```npm run reset-cache``` to put everything back to normal. After installing a dependency, your module map has change which lead to current issue
+Q: after installing a dependency my application fail to load. the terminal appear to be fail when parsing ES6 syntax  
+A: You can run ```npm run reset-cache``` to put everything back to normal. After installing a dependency, your module map has change which lead to current issue  
