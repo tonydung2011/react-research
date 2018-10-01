@@ -6,15 +6,19 @@ const url = [
     'https://fonts.googleapis.com/icon?family=Material+Icons',
 ]
 
-const route = [
+route = [
+    'http://localhost:3000/',
     'http://localhost:4000/',
+    'https://react-research-bdd27.firebaseapp.com/',
 ]
 
-self.addEventListener('install', event => event.waitUntil(
-    caches.open(CACHE)
-        .then(cache => cache.addAll(url))
-        .then(() => self.skipWaiting())
-))
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE)
+            .then(cache => cache.addAll(url))
+            .then(() => self.skipWaiting())
+    )
+})
 
 self.addEventListener('activate', function(event) {
     console.log('[PWA Builder] Claiming clients for current page')
