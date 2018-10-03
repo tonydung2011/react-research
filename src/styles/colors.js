@@ -10,4 +10,7 @@ export default {
     white: '#fff',
     dark: '#041413',
     grey: '#848484',
+    facebook: '#3A5EC7',
+    likedin: '#0473B3',
+    gmail: '#D40904',
 }

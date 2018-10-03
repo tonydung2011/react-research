@@ -1,23 +1,22 @@
 import React, {
     Component,
 } from 'react'
-// import {
-    // Link,
-// } from 'react-router-dom'
 import withStyles from '@material-ui/core/styles/withStyles'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
 import {
-    // AppLang,
     AppConfig,
+    AppLang,
 } from '@internal/constants'
 import {
     styles,
 } from '@internal/styles'
 import {
-    // Avatar,
+    Avatar,
+    // SocialConnect,
 } from '@internal/ui'
 
 class Home extends Component {
@@ -72,22 +71,47 @@ class Home extends Component {
 
 	render = () => {
         const { classes } = this.props
-        console.log(classes)
 
         return (
             <React.Fragment>
                 <Grid
                     container
-                    alignItems='center'
                 >
                     <Grid
                         item
                         xs={12}
                     >
-                        <div
-                            className={classnames('coverImageTop', 'middleContent')}
-                        >
-                            {/* <Avatar /> */}
+                        <div className={classnames(classes.coverImageTop, 'middleContent')} >
+                            <div className={classnames(classes.infoContainer)} >
+                                <Avatar />
+                                <div className={classnames('marginTop20', 'padBotton5')} >
+                                    <Typography
+                                        variant='headline'
+                                        className={classes.nameTitle}
+                                    >
+                                        {AppLang.content.page.home.name}
+                                    </Typography>
+                                </div>
+                                <div className={classnames('padTop5', 'marginBottom20')} >
+                                    <Typography
+                                        variant='subheading'
+                                        className={classes.roleTitle}
+                                    >
+                                        {AppLang.content.page.home.role}
+                                    </Typography>
+                                </div>
+                                {/* <div className={classnames('flexRow')}>
+                                    <SocialConnect
+                                        provider='facebook'
+                                    />
+                                    <SocialConnect
+                                        provider='gmail'
+                                    />
+                                    <SocialConnect
+                                        provider='linkedin'
+                                    />
+                                </div> */}
+                            </div>
                         </div>
                     </Grid>
                 </Grid>

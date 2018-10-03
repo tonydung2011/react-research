@@ -24,6 +24,7 @@ export default createMuiTheme({
             color: colors.primaryHighlight,
         },
         headline: {
+            // standard font for headline of each section
             color: colors.secondary,
         },
         display1: {
@@ -60,10 +61,10 @@ export default createMuiTheme({
             color: colors.grey,
         },
         caption: {
-
+            // standard font for image's caption
         },
         button: {
-
+            // standard font for button text
         },
     }
 })

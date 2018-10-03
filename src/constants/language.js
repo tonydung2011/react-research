@@ -25,7 +25,8 @@ export default {
                 submit: 'Done!'
             },
             home: {
-                title: 'To Do List',
+                name: 'Tran Ngoc Dung',
+                role: 'Javascript Developer'
             }
         },
         ui: {
