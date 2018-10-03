@@ -31,6 +31,7 @@
   "author": "Dung Tran",
   "license": "MIT",
   "dependencies": {
+    "@internal/assets": "file:src/assets",
     "@internal/constants": "file:src/constants",
     "@internal/containers": "file:src/containers",
     "@internal/lib": "file:src/lib",
@@ -51,6 +52,7 @@
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-image": "1.5.1",
+    "react-pose": "3.3.6",
     "react-redux": "5.0.7",
     "react-router-dom": "4.3.1",
     "redux": "4.0.0",
