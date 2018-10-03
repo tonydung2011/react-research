@@ -26,7 +26,7 @@ jobs:
 
             - run: ls dist
 
-            - run: firebase use react-research-bdd27 --token $FIREBASE_TOKEN
+            - run: firebase use react-portfolio-fe7fb --token $FIREBASE_TOKEN
 
             - run: firebase deploy --only hosting -m "Deploy by Circle CI" --token $FIREBASE_TOKEN
 

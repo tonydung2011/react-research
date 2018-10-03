@@ -3,8 +3,7 @@ import {
 } from 'react-redux'
 import HomeView from './HomeView'
 
-const mapStateToProps = state => ({
-    taskList: state.task.task,
+const mapStateToProps = () => ({
 })
 
 const mapDispatchToProps = {

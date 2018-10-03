@@ -1,31 +1,23 @@
 import React, {
     Component,
 } from 'react'
-import {
+// import {
     // Link,
-} from 'react-router-dom'
-import Grid from '@material-ui/core/Grid'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItem from '@material-ui/core/ListItem'
+// } from 'react-router-dom'
 import withStyles from '@material-ui/core/styles/withStyles'
-import Divider from '@material-ui/core/Divider'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import TocIcon from '@material-ui/icons/Toc'
-import Typography from '@material-ui/core/Typography'
-
+import Grid from '@material-ui/core/Grid'
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-import NavBar from '@internal/containers/ui/NavBarContainer'
 import {
-    AppLang, AppConfig,
+    // AppLang,
+    AppConfig,
 } from '@internal/constants'
 import {
     styles,
 } from '@internal/styles'
 import {
-    HoverAddButton,
+    // Avatar,
 } from '@internal/ui'
 
 class Home extends Component {
@@ -78,84 +70,30 @@ class Home extends Component {
         this.props.history.push(AppConfig.route.newTodo)
     }
 
-    renderItem = item => {
-        const itemRef = React.createRef()
-        return (
-            <Grid
-                item
-                xs={12}
-                md={4}
-                key={item.id}
-            >
-                {
-                    this.state.usingCardItem ? (
-                        <Card
-                            ref={itemRef}
-                            className={this.props.classes.itemHover}
-                        >
-                            <CardContent>
-                                <p className='textCardHeader textColorPrimary'>
-                                    {item.title}
-                                </p>
-                                <p className='textCardContent textColorDark'>
-                                    {item.content}
-                                </p>
-                            </CardContent>
-                        </Card>
-                    ) : (
-                        <ListItem
-                            button
-                            className={this.props.classes.listItemContainer}
-                        >
-                            <ListItemIcon>
-                                <TocIcon />
-                            </ListItemIcon>
-                            <ListItemText
-                                classes={styles.pages.home.listItemText}
-                                primary={(
-                                    <Typography variant='display1' noWrap >{item.title}</Typography>
-                                )}
-                                secondary={(
-                                    <Typography variant='body2' noWrap >{item.content}</Typography>
-                                )}
-                            />
-                        </ListItem>
-                    )
-                }
-            </Grid>
-        )
-    }
+	render = () => {
+        const { classes } = this.props
+        console.log(classes)
 
-	render = () => (
-        <div>
-            <NavBar isHome title={AppLang.content.page.home.title} />
-            <Grid
-                container
-            >
-                <Grid item xs={false} md={2} />
+        return (
+            <React.Fragment>
                 <Grid
-                    item
-                    xs={12}
-                    md={8}
+                    container
+                    alignItems='center'
                 >
-                    <img
-                        src={AppConfig.img.homeBackground}
-                        className={this.props.classes.imgBackground}
-                    />
                     <Grid
-                        container
-                        spacing={8}
-                        className={this.props.classes.listWrapper}
+                        item
+                        xs={12}
                     >
-                        <Divider />
-                        {this.state.taskList.map(item => this.renderItem(item))}
+                        <div
+                            className={classnames('coverImageTop', 'middleContent')}
+                        >
+                            {/* <Avatar /> */}
+                        </div>
                     </Grid>
                 </Grid>
-                <Grid item xs={false} md={2} />
-            </Grid>
-            <HoverAddButton callback={this.navigateToNewTask} />
-        </div>
-	)
+            </React.Fragment>
+        )
+    }
 }
 
 export default withStyles(styles.pages.home)(Home)
