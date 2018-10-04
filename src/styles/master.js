@@ -17,6 +17,7 @@ export default createMuiTheme({
         }
     },
     typography: {
+        fontFamily: 'Montserrat',
         title: {
             color: colors.primary,
         },
@@ -25,13 +26,13 @@ export default createMuiTheme({
         },
         headline: {
             // standard font for headline of each section
-            color: colors.secondary,
+            fontSize: 30,
+            color: colors.dark,
         },
         display1: {
             // represent for title of an ListItemText
             fontSize: '20px',
             fontWeight: 400,
-            fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
             lineHeight: '1.20588em',
             color: colors.primaryHighlight,
         },
@@ -48,7 +49,6 @@ export default createMuiTheme({
             // represent for standard text body
             fontSize: '14px',
             fontWeight: 300,
-            fontFamily: 'Roboto',
             lineHeight: '1.20588em',
             color: colors.dark,
         },
@@ -56,7 +56,6 @@ export default createMuiTheme({
             // represent for standard text body with lighter color
             fontSize: '14px',
             fontWeight: 300,
-            fontFamily: 'Roboto',
             lineHeight: '1.20588em',
             color: colors.grey,
         },

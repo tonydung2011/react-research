@@ -18,20 +18,20 @@ const SocialConnect = ({
             CircleWrapper = pose.div({
                 hoverable: true,
                 init: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.white,
+                    backgroundColor: colors.transparent,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
                 hover: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.facebook,
+                    backgroundColor: colors.facebook,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
             })
             Icon = require('@internal/assets/facebook.png') /* eslint-disable-line */
@@ -41,20 +41,20 @@ const SocialConnect = ({
             CircleWrapper = pose.div({
                 hoverable: true,
                 init: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.white,
+                    backgroundColor: colors.transparent,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
                 hover: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.facebook,
+                    backgroundColor: colors.gmail,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
             })
             Icon = require('@internal/assets/gmail.png') /* eslint-disable-line */
@@ -64,20 +64,20 @@ const SocialConnect = ({
             CircleWrapper = pose.div({
                 hoverable: true,
                 init: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.white,
+                    backgroundColor: colors.transparent,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
                 hover: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.facebook,
+                    backgroundColor: colors.likedin,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
             })
             Icon = require('@internal/assets/linkedin.png') /* eslint-disable-line */
@@ -87,31 +87,33 @@ const SocialConnect = ({
             CircleWrapper = pose.div({
                 hoverable: true,
                 init: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.white,
+                    backgroundColor: colors.transparent,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
                 hover: {
-                    backgroundColor: 'rgb(0, 0, 0, 0)',
-                    borderWidth: 2,
+                    border: '1px solid white',
                     borderRadius: '50%',
-                    borderColor: colors.facebook,
+                    backgroundColor: colors.facebook,
                     width: 40,
-                    hieght: 40,
+                    height: 40,
+                    padding: 10,
                 },
             })
             Icon = require('@internal/assets/facebook.png') /* eslint-disable-line */
             link = AppConfig.link.facebook
     }
     return (
-        <CircleWrapper>
+        <div className='flex' >
             <a href={link} >
-                <Img src={Icon} style={{ width: 30, height: 30 }} />
+                <CircleWrapper>
+                    <Img src={Icon} style={{ width: 20, height: 20 }} />
+                </CircleWrapper>
             </a>
-        </CircleWrapper>
+        </div>
     )
 }
 

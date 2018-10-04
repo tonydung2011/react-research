@@ -169,16 +169,30 @@
     justify-content: center;
 }
 
+.justifyContentSpaceBetween {
+    justify-content: space-between;
+}
+
+.justifyContentSpaceAround {
+    justify-content: space-around;
+}
+
 .alighItemsCenter {
     align-items: center
 }
 
+.alignBaseline {
+    align-items: baseline
+}
+
 .flexColum {
-    flex-direction: column
+    flex-direction: column;
+    display: flex;
 }
 
 .flexRow {
-    flex-direction: row
+    flex-direction: row;
+    display: flex;
 }
 
 .fontDefault {
@@ -236,4 +250,31 @@
 
 @-ms-viewport {
     width: device-width ;
+}
+
+.whiteLightBorder {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.whiteStrongBorder {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.hidden-overflow {
+    overflow: hidden;
+}
+
+.center {
+    margin: auto;
+}
+
+.flex {
+    flex: 1;
+}
+
+.widthAuto {
+    width: 50%;
+    overflow-y: visible;
 }
