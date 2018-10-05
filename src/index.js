@@ -7,6 +7,7 @@ import '@internal/styles/styleguide.css'
 import App from './app'
 import './favicon.ico'
 import 'typeface-roboto'
+import 'react-vis/dist/styles/radical-chart'
 // import serviceWorker from '@internal/service_worker'
 const store = configureStore()
 

@@ -51,5 +51,10 @@ export default theme => ({
         paddingBottom: '12px',
         paddingLeft: '40px',
         paddingRight: '40px',
+    },
+    carouselItem: {
+        paddingBottom: 50,
+        paddingLeft: 50,
+        paddingRight: 50,
     }
 })

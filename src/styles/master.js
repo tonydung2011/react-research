@@ -23,6 +23,7 @@ export default createMuiTheme({
         },
         subheading: {
             color: colors.primaryHighlight,
+            fontSize: 22,
         },
         headline: {
             // standard font for headline of each section

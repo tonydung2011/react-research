@@ -4,8 +4,11 @@ import React, {
 import withStyles from '@material-ui/core/styles/withStyles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import {
+    // RadialChart,
+} from 'react-vis'
 import Button from '@material-ui/core/Button'
-import Slider from 'react-slick'
+import Carousel from 'nuka-carousel'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import uuid from 'uuid/v1'
@@ -72,14 +75,15 @@ class Home extends Component {
         this.props.history.push(AppConfig.route.newTodo)
     }
 
-    renderCareerTimePoint = timePoint => (
-        <div key={uuid()}>
+    renderCareerTimePoint = (timePoint, classes) => (
+        <div key={uuid()} className={classnames(classes.carouselItem)}>
             <Typography variant='subheading' align='center'>
                 {timePoint.title}
             </Typography>
             <Typography variant='body1' align='center'>
                 <i>{timePoint.company}</i>, {timePoint.duringTime}
             </Typography>
+            <br />
             <Typography variant='body2' align='center'>
                 {timePoint.description}
             </Typography>
@@ -88,7 +92,6 @@ class Home extends Component {
 
 	render = () => {
         const { classes } = this.props
-
         return (
             <React.Fragment>
                 <div className={classnames(classes.coverImageTop, 'middleContent')} >
@@ -169,20 +172,49 @@ class Home extends Component {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container justify='center' className='marginTop40'>
+                        <Grid container justify='center' className={classnames('marginTop40')} >
                             <Grid item sm={10}>
-                                <Slider
+                                <Carousel
                                     autoplay
-                                    autoplaySpeed={2000}
-                                    slidesToScroll={1}
-                                    pauseOnFocus
-                                    dots
-                                    infinite
+                                    pauseOnHover
+                                    wrapAround
+                                    transitionMode='scroll'
+                                    autoplayInterval={3000}
+                                    speed={1000}
+                                    cellAlign='center'
+                                    initialSlideHeight={150}
+                                    autoGenerateStyleTag={false}
+                                    easing='easeQuadInOut'
                                 >
-                                    {AppLang.content.page.home.career.map(item => this.renderCareerTimePoint(item))}
-                                </Slider>
+                                    {AppLang.content.page.home.career.map(item => this.renderCareerTimePoint(item, classes))}
+                                </Carousel>
                             </Grid>
                         </Grid>
+                        <Grid container justify='center' className='marginTop40'>
+                            <Grid item sm={6} >
+                                <Typography variant='headline' align='center'>
+                                    {AppLang.content.page.home.careerTimeline}
+                                </Typography>
+                                <br />
+                                <Typography variant='body2' align='center'>
+                                    {AppLang.content.page.home.careerDescription}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        {/* <Grid container justify='center' className='marginTop40'>
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={3}
+                                onMouseEnter={}
+                            >
+                                <RadialChart
+                                    data={AppLang.content.page.home.skill}
+                                    color=
+                                />
+                            </Grid>
+                        </Grid> */}
                     </Grid>
                     <Grid item xs={false} md={1} />
                 </Grid>

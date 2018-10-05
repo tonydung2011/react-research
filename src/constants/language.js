@@ -39,7 +39,7 @@ export default {
                         description: 'I studied in regular computer science aspect including computer network, operation system, software development. My major learning during school time is Web development.',
                     },
                     {
-                        title: 'Javascript Intership',
+                        title: 'Javascript Internship',
                         company: 'Groove Technology VietNam',
                         duringTime: '11.2017 - 12.2018',
                         description: 'During the intern program, I have chance to work with a lot of new technology. Our final project is Google Street View - like web application. It allows our staff or potential recruitment to take a look around the office and understand how\'s their working enviroment look like. My role in the team is to develop the Node js API server, Mongo database and deploy it Goole cloud platform by Docker.',
@@ -49,6 +49,28 @@ export default {
                         company: 'Groove Technology VietNam',
                         duringTime: '2.2018 - now',
                         description: 'After graduated from the Intern program. I continue to work at Groove as fulltime Developer. My role is React Native developer develop feature for both iOS and Android application.',
+                    },
+                ],
+                skill: [
+                    {
+                        angle: 85,
+                        title: 'React Native',
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                    },
+                    {
+                        angle: 85,
+                        title: 'React Native',
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                    },
+                    {
+                        angle: 85,
+                        title: 'React Native',
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                    },
+                    {
+                        angle: 85,
+                        title: 'React Native',
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
                     },
                 ]
             }
