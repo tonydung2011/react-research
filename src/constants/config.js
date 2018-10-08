@@ -11,5 +11,15 @@ export default {
         gmail: 'https://google.com',
         facebook: 'https://facebook.com/tranngocdung.201194',
         linkedin: 'https://linkedin.com/in/tranngocdung201194',
-    }
+    },
+    mywork: [
+        {
+            img: '',
+            title: '',
+            description: '',
+            tag: [
+                '',
+            ]
+        }
+    ]
 }

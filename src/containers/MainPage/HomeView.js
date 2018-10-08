@@ -4,51 +4,25 @@ import React, {
 import withStyles from '@material-ui/core/styles/withStyles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import {
-    RadialChart,
-} from 'react-vis'
 import Button from '@material-ui/core/Button'
 import ButtonBase from '@material-ui/core/ButtonBase'
 import Carousel from 'nuka-carousel'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import uuid from 'uuid/v1'
-import pose from 'react-pose'
 
 import {
-    AppLang, AppConfig,
+    AppLang,
+    // AppConfig,
 } from '@internal/constants'
 import {
-    styles, colors,
+    styles,
 } from '@internal/styles'
 import {
     Avatar,
     SocialConnect,
+    HoverSkillChart,
 } from '@internal/ui'
-
-const ChartHoverWrapper = pose.div({
-    hoverable: true,
-    init: {
-        backgroundColor: colors.primary,
-    },
-    hover: {
-        backgroundColor: colors.secondaryHighlight,
-    }
-})
-
-const ChartSkillItemContainer = pose.div({
-    hoverable: true,
-})
-
-const HoverText = pose.h4({
-    hoverable: true,
-    init: {
-        color: colors.dark,
-    },
-    hover: {
-        color: colors.secondaryHighlight,
-    }
-})
 
 class Home extends Component {
     constructor(props) {
@@ -98,38 +72,6 @@ class Home extends Component {
                 {timePoint.description}
             </Typography>
         </div>
-    )
-
-    renderSkillChart = (skill, classes) => (
-        <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-            key={skill.id}
-        >
-            <ChartSkillItemContainer className='pad15'>
-                <ChartHoverWrapper className={classes.chartSkillWrapper}>
-                    <RadialChart
-                        data={skill.chart}
-                        width={200}
-                        height={200}
-                        innerRadius={80}
-                        radius={90}
-                        colorType='literal'
-                    />
-                </ChartHoverWrapper>
-                <Typography variant='subheading' align='center' className={classnames(classes.centerNumber)}>
-                    {skill.number}
-                </Typography>
-                <HoverText className={classes.skillTitle}>
-                    {skill.title}
-                </HoverText>
-                <Typography variant='body2' align='center'>
-                    {skill.description}
-                </Typography>
-            </ChartSkillItemContainer>
-        </Grid>
     )
 
     selectWorkcategory = (category) => {
@@ -255,7 +197,13 @@ class Home extends Component {
                             </Grid>
                         </Grid>
                         <Grid container justify='center' className='marginTop40' spacing={16}>
-                            {AppLang.content.page.home.skill.map(skill => this.renderSkillChart(skill, classes))}
+                            {AppLang.content.page.home.skill.map(skill =>
+                                <HoverSkillChart
+                                    skill={skill}
+                                    classes={classes}
+                                    key={skill.id}
+                                />
+                            )}
                         </Grid>
                         <Grid container justify='center' className='marginTop20'>
                             <Grid item sm={6} >
@@ -306,11 +254,11 @@ class Home extends Component {
                     </Grid>
                     <Grid item xs={false} md={1} />
                 </Grid>
-                <Grid
+                {/* <Grid
                     container
                 >
                     {AppConfig.mywork.map(work => this.renderMyWork(work))}
-                </Grid>
+                </Grid> */}
             </React.Fragment>
         )
     }
