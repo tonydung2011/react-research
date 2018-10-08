@@ -5,32 +5,63 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import {
-    // RadialChart,
+    RadialChart,
 } from 'react-vis'
 import Button from '@material-ui/core/Button'
 import Carousel from 'nuka-carousel'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import uuid from 'uuid/v1'
+import pose from 'react-pose'
 
 import {
     AppConfig,
     AppLang,
 } from '@internal/constants'
 import {
-    styles,
+    styles, colors,
 } from '@internal/styles'
 import {
     Avatar,
     SocialConnect,
 } from '@internal/ui'
 
+const ChartHoverWrapper = pose.div({
+    hoverable: true,
+    init: {
+        backgroundColor: colors.primary,
+        borderRadius: '50%',
+        width: 200,
+        height: 200,
+    },
+    hover: {
+        backgroundColor: colors.secondaryHighlight,
+        borderRadius: '50%',
+        width: 200,
+        height: 200,
+    }
+})
+
+const HoverText = pose.h4({
+    hoverable: true,
+    init: {
+        color: colors.dark,
+        fontFamily: 'Roboto',
+        fontSize: 16,
+        textAlign: 'center',
+    },
+    hover: {
+        color: colors.secondaryHighlight,
+        fontFamily: 'Roboto',
+        fontSize: 16,
+        textAlign: 'center',
+    }
+})
+
 class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            taskList: [],
-            usingCardItem: window.innerWidth > 600,
         }
     }
 
@@ -48,8 +79,15 @@ class Home extends Component {
     }
 
     componentDidMount = () => {
+        const temp = {}
+        AppLang.content.page.home.skill.forEach((skill) => {
+            Object.defineProperty(temp, skill.id, {
+                value: false,
+                writable: true,
+            })
+        })
         this.setState({
-            taskList: this.props.taskList,
+            skilChart: temp
         })
         window.addEventListener('resize', this.updateCard)
     }
@@ -88,6 +126,40 @@ class Home extends Component {
                 {timePoint.description}
             </Typography>
         </div>
+    )
+
+    renderSkillChart = (skill, classes) => (
+        <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            key={skill.id}
+        >
+            <Grid container justify='center' alignItems='center' >
+                <Grid item>
+                    <ChartHoverWrapper>
+                        <RadialChart
+                            data={skill.chart}
+                            width={200}
+                            height={200}
+                            innerRadius={75}
+                            radius={90}
+                            colorType='literal'
+                        />
+                        <Typography variant='subheading' className={classnames(classes.centerNumber)}>
+                            {skill.number}
+                        </Typography>
+                        <HoverText>
+                            {skill.title}
+                        </HoverText>
+                        <Typography variant='body2' align='center'>
+                            {skill.description}
+                        </Typography>
+                    </ChartHoverWrapper>
+                </Grid>
+            </Grid>
+        </Grid>
     )
 
 	render = () => {
@@ -190,7 +262,7 @@ class Home extends Component {
                                 </Carousel>
                             </Grid>
                         </Grid>
-                        <Grid container justify='center' className='marginTop40'>
+                        <Grid container justify='center' className='marginY40'>
                             <Grid item sm={6} >
                                 <Typography variant='headline' align='center'>
                                     {AppLang.content.page.home.careerTimeline}
@@ -201,20 +273,9 @@ class Home extends Component {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        {/* <Grid container justify='center' className='marginTop40'>
-                            <Grid
-                                item
-                                xs={12}
-                                sm={6}
-                                md={3}
-                                onMouseEnter={}
-                            >
-                                <RadialChart
-                                    data={AppLang.content.page.home.skill}
-                                    color=
-                                />
-                            </Grid>
-                        </Grid> */}
+                        <Grid container justify='center' className='marginTop40' spacing={16}>
+                            {AppLang.content.page.home.skill.map(skill => this.renderSkillChart(skill, classes))}
+                        </Grid>
                     </Grid>
                     <Grid item xs={false} md={1} />
                 </Grid>

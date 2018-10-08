@@ -53,24 +53,64 @@ export default {
                 ],
                 skill: [
                     {
-                        angle: 85,
+                        chart: [
+                            {
+                                angle: 3,
+                                color: 'white',
+                            }, {
+                                angle: 1,
+                                color: 'rgba(0, 0, 0, 0)'
+                            },
+                        ],
                         title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
+                        id: 'skill-1',
+                        number: '70%',
                     },
                     {
-                        angle: 85,
+                        chart: [
+                            {
+                                angle: 3,
+                                color: 'white',
+                            }, {
+                                angle: 1,
+                                color: 'rgba(0, 0, 0, 0)'
+                            },
+                        ],
                         title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
+                        id: 'skill-2',
+                        number: '70%',
                     },
                     {
-                        angle: 85,
+                        chart: [
+                            {
+                                angle: 3,
+                                color: 'white',
+                            }, {
+                                angle: 1,
+                                color: 'rgba(0, 0, 0, 0)'
+                            },
+                        ],
                         title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
+                        id: 'skill-3',
+                        number: '70%',
                     },
                     {
-                        angle: 85,
+                        chart: [
+                            {
+                                angle: 3,
+                                color: 'white',
+                            }, {
+                                angle: 1,
+                                color: 'rgba(0, 0, 0, 0)',
+                            },
+                        ],
                         title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the'
+                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
+                        id: 'skill-4',
+                        number: '70%',
                     },
                 ]
             }

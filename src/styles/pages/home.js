@@ -56,5 +56,13 @@ export default theme => ({
         paddingBottom: 50,
         paddingLeft: 50,
         paddingRight: 50,
+    },
+    centerNumber: {
+        position: 'relative',
+        zIndex: 4,
+        textAlign: 'center',
+        bottom: '55%',
+        fontWeight: 'Bold',
+        color: colors.white,
     }
 })
