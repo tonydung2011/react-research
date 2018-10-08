@@ -75,5 +75,8 @@ export default theme => ({
         height: 200,
         borderRadius: '50%',
         margin: 'auto',
+    },
+    workCategory: {
+        color: colors.primaryDark,
     }
 })

@@ -112,7 +112,12 @@ export default {
                         id: 'skill-4',
                         number: '70%',
                     },
-                ]
+                ],
+                badge: {
+                    all: 'All',
+                    reactnative: 'React Native',
+                    react: 'React',
+                }
             }
         },
         ui: {

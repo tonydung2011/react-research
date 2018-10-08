@@ -8,6 +8,7 @@ import {
     RadialChart,
 } from 'react-vis'
 import Button from '@material-ui/core/Button'
+import ButtonBase from '@material-ui/core/ButtonBase'
 import Carousel from 'nuka-carousel'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
@@ -15,8 +16,7 @@ import uuid from 'uuid/v1'
 import pose from 'react-pose'
 
 import {
-    AppConfig,
-    AppLang,
+    AppLang, AppConfig,
 } from '@internal/constants'
 import {
     styles, colors,
@@ -58,10 +58,7 @@ class Home extends Component {
     }
 
     static propTypes = {
-        taskList: PropTypes.array.isRequired,
         classes: PropTypes.object.isRequired,
-        toggleDrawer: PropTypes.func.isRequired,
-        history: PropTypes.object.isRequired,
     }
 
     static defaultProps = {
@@ -86,23 +83,6 @@ class Home extends Component {
 
     componentWillUnmount = () => {
         window.removeEventListener('resize', this.updateCard)
-    }
-
-    updateCard = e => this.setState({
-        usingCardItem: e.target.innerWidth > 600
-    })
-
-    componentWillReceiveProps = (nextProps) => {
-        if (nextProps.taskList !== this.props.taskList) {
-            this.setState({
-                taskList: nextProps.taskList,
-            })
-        }
-    }
-
-    navigateToNewTask = () => {
-        this.props.toggleDrawer()
-        this.props.history.push(AppConfig.route.newTodo)
     }
 
     renderCareerTimePoint = (timePoint, classes) => (
@@ -150,6 +130,17 @@ class Home extends Component {
                 </Typography>
             </ChartSkillItemContainer>
         </Grid>
+    )
+
+    selectWorkcategory = (category) => {
+        console.log('selecy work category', category)
+        this.setState({
+            workCategory: category
+        })
+    }
+
+    renderMyWork = work => (
+        <div />
     )
 
 	render = () => {
@@ -266,9 +257,59 @@ class Home extends Component {
                         <Grid container justify='center' className='marginTop40' spacing={16}>
                             {AppLang.content.page.home.skill.map(skill => this.renderSkillChart(skill, classes))}
                         </Grid>
-                        <h3>cjgskfjhgksdfjhgskdjhfgksjhglkdjfhg</h3>
+                        <Grid container justify='center' className='marginTop20'>
+                            <Grid item sm={6} >
+                                <Typography variant='headline' align='center'>
+                                    {AppLang.content.page.home.careerTimeline}
+                                </Typography>
+                                <br />
+                                <Typography align='center' variant='display2'>
+                                    <ButtonBase disableRipple onClick={() => this.selectWorkcategory('all')}>
+                                        <Typography
+                                            className={classnames({
+                                                'padX5': true,
+                                                [`${classes.workCategory}`]: this.state.workCategory === 'all'
+                                            })}
+                                            variant='display2'
+                                        >
+                                            {AppLang.content.page.home.badge.all}
+                                        </Typography>
+                                    </ButtonBase>
+                                    {'/'}
+                                    <ButtonBase disableRipple onClick={() => this.selectWorkcategory('react-native')}>
+                                        <Typography
+                                            className={classnames({
+                                                'padX5': true,
+                                                [`${classes.workCategory}`]: this.state.workCategory === 'react-native'
+                                            })}
+                                            variant='display2'
+                                        >
+                                            {AppLang.content.page.home.badge.reactnative}
+                                        </Typography>
+                                    </ButtonBase>
+                                    {'/'}
+                                    <ButtonBase disableRipple onClick={() => this.selectWorkcategory('react')}>
+                                        <Typography
+                                            className={classnames({
+                                                'padX5': true,
+                                                [`${classes.workCategory}`]: this.state.workCategory === 'react'
+                                            })}
+                                            variant='display2'
+                                        >
+                                            {AppLang.content.page.home.badge.react}
+                                        </Typography>
+                                    </ButtonBase>
+                                </Typography>
+                                <br />
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid item xs={false} md={1} />
+                </Grid>
+                <Grid
+                    container
+                >
+                    {AppConfig.mywork.map(work => this.renderMyWork(work))}
                 </Grid>
             </React.Fragment>
         )

@@ -32,13 +32,16 @@ export default createMuiTheme({
         },
         display1: {
             // represent for title of an ListItemText
-            fontSize: '20px',
+            fontSize: 20,
             fontWeight: 400,
             lineHeight: '1.20588em',
             color: colors.primaryHighlight,
         },
         display2: {
-
+            // represent for Badge in My work section
+            fontSize: 16,
+            fontWeight: 400,
+            color: colors.secondaryDark,
         },
         display3: {
 
