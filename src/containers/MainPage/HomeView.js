@@ -30,31 +30,23 @@ const ChartHoverWrapper = pose.div({
     hoverable: true,
     init: {
         backgroundColor: colors.primary,
-        borderRadius: '50%',
-        width: 200,
-        height: 200,
     },
     hover: {
         backgroundColor: colors.secondaryHighlight,
-        borderRadius: '50%',
-        width: 200,
-        height: 200,
     }
+})
+
+const ChartSkillItemContainer = pose.div({
+    hoverable: true,
 })
 
 const HoverText = pose.h4({
     hoverable: true,
     init: {
         color: colors.dark,
-        fontFamily: 'Roboto',
-        fontSize: 16,
-        textAlign: 'center',
     },
     hover: {
         color: colors.secondaryHighlight,
-        fontFamily: 'Roboto',
-        fontSize: 16,
-        textAlign: 'center',
     }
 })
 
@@ -136,29 +128,27 @@ class Home extends Component {
             md={3}
             key={skill.id}
         >
-            <Grid container justify='center' alignItems='center' >
-                <Grid item>
-                    <ChartHoverWrapper>
-                        <RadialChart
-                            data={skill.chart}
-                            width={200}
-                            height={200}
-                            innerRadius={75}
-                            radius={90}
-                            colorType='literal'
-                        />
-                        <Typography variant='subheading' className={classnames(classes.centerNumber)}>
-                            {skill.number}
-                        </Typography>
-                        <HoverText>
-                            {skill.title}
-                        </HoverText>
-                        <Typography variant='body2' align='center'>
-                            {skill.description}
-                        </Typography>
-                    </ChartHoverWrapper>
-                </Grid>
-            </Grid>
+            <ChartSkillItemContainer className='pad15'>
+                <ChartHoverWrapper className={classes.chartSkillWrapper}>
+                    <RadialChart
+                        data={skill.chart}
+                        width={200}
+                        height={200}
+                        innerRadius={80}
+                        radius={90}
+                        colorType='literal'
+                    />
+                </ChartHoverWrapper>
+                <Typography variant='subheading' align='center' className={classnames(classes.centerNumber)}>
+                    {skill.number}
+                </Typography>
+                <HoverText className={classes.skillTitle}>
+                    {skill.title}
+                </HoverText>
+                <Typography variant='body2' align='center'>
+                    {skill.description}
+                </Typography>
+            </ChartSkillItemContainer>
         </Grid>
     )
 
@@ -276,6 +266,7 @@ class Home extends Component {
                         <Grid container justify='center' className='marginTop40' spacing={16}>
                             {AppLang.content.page.home.skill.map(skill => this.renderSkillChart(skill, classes))}
                         </Grid>
+                        <h3>cjgskfjhgksdfjhgskdjhfgksjhglkdjfhg</h3>
                     </Grid>
                     <Grid item xs={false} md={1} />
                 </Grid>

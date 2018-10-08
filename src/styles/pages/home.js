@@ -61,8 +61,19 @@ export default theme => ({
         position: 'relative',
         zIndex: 4,
         textAlign: 'center',
-        bottom: '55%',
+        bottom: 110,
         fontWeight: 'Bold',
         color: colors.white,
+    },
+    skillTitle: {
+        fontFamily: 'Montserrat',
+        fontSize: 16,
+        textAlign: 'center',
+    },
+    chartSkillWrapper: {
+        width: 200,
+        height: 200,
+        borderRadius: '50%',
+        margin: 'auto',
     }
 })
