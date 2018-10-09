@@ -13,5 +13,6 @@ export default {
     facebook: '#3A5EC7',
     likedin: '#0473B3',
     gmail: '#D40904',
-    transparent: 'rgb(0, 0, 0, 0)'
+    transparent: 'rgb(0, 0, 0, 0)',
+    dim: 'rgba(0, 0, 0, 0.7)',
 }

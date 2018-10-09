@@ -117,7 +117,17 @@ export default {
                     all: 'All',
                     reactnative: 'React Native',
                     react: 'React',
-                }
+                },
+                getInTouch: 'Get In Touch',
+                contactMe: 'Contact me',
+                contactMeDescription: 'Contact me via Skype, Linkedin and Email',
+                guessName: 'Name',
+                guessNamePlaceholder: 'Nick Fury',
+                guessEmail: 'Email',
+                guessEmailPlaceholder: 'angent@Shield.com',
+                guessMessage: 'Message',
+                guessMessagePlaceHolder: 'There was an idea. Bring together a group of remarkable people...',
+                submit: 'Submit Now',
             }
         },
         ui: {

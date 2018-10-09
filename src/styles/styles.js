@@ -4,6 +4,7 @@ import navbar from './ui/navbar'
 import drawer from './ui/drawer'
 import hoverButton from './ui/hoverButton'
 import avatar from './ui/avatar'
+import imageGrid from './ui/imageGrid'
 
 export default {
     master,
@@ -15,5 +16,6 @@ export default {
         drawer,
         hoverButton,
         avatar,
+        imageGrid,
     }
 }

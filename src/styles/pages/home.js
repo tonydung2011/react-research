@@ -1,3 +1,6 @@
+import {
+    AppConfig,
+} from '@internal/constants'
 import colors from '../colors'
 
 export default theme => ({
@@ -5,7 +8,7 @@ export default theme => ({
         width: '100%',
         height: window.innerWidth / 1.5,
         minHeight: '60%',
-        backgroundImage: 'url("https://firebasestorage.googleapis.com/v0/b/react-portfolio-fe7fb.appspot.com/o/portfolio-background%20(1).jpg?alt=media&token=1af6b5ec-6ad1-4ab3-9f6c-3b9a60891429")',
+        backgroundImage: `url('${AppConfig.img.homeBackground}')`,
         overflow: 'hidden',
         backgroundSize: 'cover',
     },
@@ -78,5 +81,39 @@ export default theme => ({
     },
     workCategory: {
         color: colors.primaryDark,
+    },
+    renderMyWork: {
+        padding: 1,
+        display: 'flex',
+    },
+    imgMyWork: {
+        flex: 1,
+    },
+    getInTouchButton: {
+        marginTop: '20px',
+        marginBottom: '40px',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        paddingTop: '5px',
+        paddingBottom: '5px',
+        backgroundColor: colors.primary,
+        color: colors.white,
+        '&:hover': {
+            backgroundColor: colors.primaryHighlight
+        }
+    },
+    contactContainer: {
+        backgroundImage: `url('${AppConfig.img.contactBackground}')`
+    },
+    contactMe: {
+        color: colors.white,
+    },
+    contactMeDescription: {
+        color: colors.white,
+    },
+    textField: {
+        color: colors.white,
+        paddingBottom: '10px',
+        backgroundColor: colors.white,
     }
 })
