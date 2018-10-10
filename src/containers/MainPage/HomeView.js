@@ -15,7 +15,6 @@ import _ from 'lodash'
 
 import {
     AppLang,
-    AppConfig,
 } from '@internal/constants'
 import {
     styles,
@@ -36,7 +35,7 @@ class Home extends Component {
         super(props)
         this.state = {
             windowWidth: 360,
-            worksList: AppConfig.mywork,
+            projects: this.props.projects,
             filterForWorkGrid: arg => arg,
             workCategory: 'all',
             guessName: '',
@@ -47,12 +46,13 @@ class Home extends Component {
 
     static propTypes = {
         classes: PropTypes.object.isRequired,
+        projects: PropTypes.array.isRequired,
     }
 
     static defaultProps = {
-        taskList: [],
         toggleDrawer: () => {},
         history: {},
+        projects: [],
     }
 
     componentDidMount = () => {
@@ -71,6 +71,14 @@ class Home extends Component {
 
     componentWillUnmount = () => {
         window.removeEventListener('resize', this.updateWindowHeight)
+    }
+
+    componentWillReceiveProps = (newProps) => {
+        if (newProps.projects !== this.props.projects) {
+            this.setState({
+                projects: newProps.projects,
+            })
+        }
     }
 
     updateWindowHeight = e => this.setState({
@@ -285,7 +293,7 @@ class Home extends Component {
                     <Grid item xs={false} md={1} />
                 </Grid>
                 <ImageGrid
-                    data={this.state.worksList}
+                    data={this.state.projects}
                     filter={this.state.filterForWorkGrid}
                     columnWidth={UtilLib.getItemWidthFromWindowSizeBreakPoint(this.state.windowWidth, {
                         xs: 12, sm: 6, md: 3, lg: 2,
