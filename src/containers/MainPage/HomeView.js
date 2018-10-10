@@ -25,6 +25,7 @@ import {
     SocialConnect,
     HoverSkillChart,
     ImageGrid,
+    CenterWrapper,
 } from '@internal/ui'
 import {
     UtilLib,
@@ -160,7 +161,7 @@ class Home extends Component {
                                 />
                             </Grid>
                         </Grid>
-                        <div className='marginTop40' >
+                        <div className='marginTop80' >
                             <Grid
                                 container
                                 direction='row'
@@ -181,13 +182,11 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <Grid
-                    container
-                >
+                <Grid container >
                     <Grid item xs={false} md={1} />
                     <Grid item xs={12} md={10} >
-                        <Grid container justify='center' className='marginTop40'>
-                            <Grid item sm={6} >
+                        <CenterWrapper container justify='center' className='marginY80 padX15'>
+                            <React.Fragment>
                                 <Typography variant='headline' align='center'>
                                     {AppLang.content.page.home.careerTimeline}
                                 </Typography>
@@ -195,9 +194,9 @@ class Home extends Component {
                                 <Typography variant='body2' align='center'>
                                     {AppLang.content.page.home.careerDescription}
                                 </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container justify='center' className={classnames('marginTop40')} >
+                            </React.Fragment>
+                        </CenterWrapper>
+                        <Grid container justify='center' className={classnames('marginY80')} >
                             <Grid item sm={10}>
                                 <Carousel
                                     autoplay
@@ -215,8 +214,8 @@ class Home extends Component {
                                 </Carousel>
                             </Grid>
                         </Grid>
-                        <Grid container justify='center' className='marginY40'>
-                            <Grid item sm={6} >
+                        <CenterWrapper className='marginY80 padX15'>
+                            <React.Fragment>
                                 <Typography variant='headline' align='center'>
                                     {AppLang.content.page.home.careerTimeline}
                                 </Typography>
@@ -224,19 +223,20 @@ class Home extends Component {
                                 <Typography variant='body2' align='center'>
                                     {AppLang.content.page.home.careerDescription}
                                 </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container justify='center' className='marginTop40' spacing={16}>
+                            </React.Fragment>
+                        </CenterWrapper>
+                        <Grid container justify='center' className='marginTop80 padX15' spacing={16}>
                             {AppLang.content.page.home.skill.map(skill =>
-                                <HoverSkillChart
-                                    skill={skill}
-                                    classes={classes}
-                                    key={skill.id}
-                                />
+                                <Grid item xs={12} sm={6} md={3} key={skill.id}>
+                                    <HoverSkillChart
+                                        skill={skill}
+                                        classes={classes}
+                                    />
+                                </Grid>
                             )}
                         </Grid>
-                        <Grid container justify='center' className='marginTop20'>
-                            <Grid item sm={6} >
+                        <CenterWrapper className='marginY40'>
+                            <React.Fragment>
                                 <Typography variant='headline' align='center'>
                                     {AppLang.content.page.home.careerTimeline}
                                 </Typography>
@@ -279,8 +279,8 @@ class Home extends Component {
                                     </ButtonBase>
                                 </Typography>
                                 <br />
-                            </Grid>
-                        </Grid>
+                            </React.Fragment>
+                        </CenterWrapper>
                     </Grid>
                     <Grid item xs={false} md={1} />
                 </Grid>
@@ -288,22 +288,9 @@ class Home extends Component {
                     data={this.state.worksList}
                     filter={this.state.filterForWorkGrid}
                     columnWidth={UtilLib.getItemWidthFromWindowSizeBreakPoint(this.state.windowWidth, {
-                        xs: 6, sm: 4, md: 2
+                        xs: 12, sm: 6, md: 3, lg: 2,
                     })}
                 />
-                <Typography variant='headline' align='center'>
-                    {AppLang.content.page.home.careerTimeline}
-                </Typography>
-                <Grid container justify='center'>
-                    <Grid item>
-                        <Button
-                            className={classes.getInTouchButton}
-                            variant='contained'
-                        >
-                            {AppLang.content.page.home.getInTouch}
-                        </Button>
-                    </Grid>
-                </Grid>
                 <div
                     className={classes.contactContainer}
                 >
@@ -326,11 +313,11 @@ class Home extends Component {
                         alignItems='center'
                         justify='center'
                     >
-                        <Grid item xs={false} md={2} />
+                        <Grid item xs={2} md={4} />
                         <Grid
                             item
-                            xs={12}
-                            md={8}
+                            xs={8}
+                            md={4}
                         >
                             <form
                                 noValidate
@@ -344,22 +331,45 @@ class Home extends Component {
                                     value={this.state.guessName}
                                     margin='normal'
                                     fullWidth
-                                    disableUnderline
                                     onChange={event => this.setState({
                                         guessName: event.target.value,
                                     })}
+                                    InputProps={{
+                                        className: classes.textFieldInput,
+                                        classes: {
+                                            underline: classes.textFieldBottomLine,
+                                        }
+                                    }}
+                                    InputLabelProps={{
+                                        FormLabelClasses: {
+                                            root: classes.textFieldLabel,
+                                            focused: classes.formLabelFocused,
+                                        }
+                                    }}
                                 />
                                 <TextField
                                     className={classes.textField}
                                     label={AppLang.content.page.home.guessEmail}
                                     placeholder={AppLang.content.page.home.guessEmailPlaceholder}
-                                    variant='outlined'
                                     value={this.state.guessEmail}
                                     margin='normal'
                                     fullWidth
                                     onChange={event => this.setState({
                                         guessEmail: event.target.value,
                                     })}
+                                    InputProps={{
+                                        className: classes.textFieldInput,
+                                        classes: {
+                                            underline: classes.textFieldBottomLine,
+                                        }
+                                    }}
+                                    InputLabelProps={{
+                                        FormLabelClasses: {
+                                            root: classes.textFieldLabel,
+                                            focused: classes.formLabelFocused,
+                                        }
+                                    }}
+
                                 />
                                 <TextField
                                     className={classes.textField}
@@ -370,19 +380,34 @@ class Home extends Component {
                                     margin='normal'
                                     fullWidth
                                     multiline
-                                    rows='4'
+                                    rows='6'
                                     onChange={event => this.setState({
                                         guessMessage: event.target.value,
                                     })}
+                                    InputProps={{
+                                        className: classes.textFieldInput,
+                                        classes: {
+                                            underline: classes.textFieldBottomLine,
+                                        }
+                                    }}
+                                    InputLabelProps={{
+                                        FormLabelClasses: {
+                                            root: classes.textFieldLabel,
+                                            focused: classes.formLabelFocused,
+                                        }
+                                    }}
                                 />
-                                <Button
-                                    variant='raised'
-                                >
-                                    {AppLang.content.page.home.submit}
-                                </Button>
+                                <CenterWrapper>
+                                    <Button
+                                        variant='raised'
+                                        className={classes.getInTouchButton}
+                                    >
+                                        {AppLang.content.page.home.submit}
+                                    </Button>
+                                </CenterWrapper>
                             </form>
                         </Grid>
-                        <Grid item xs={false} md={2} />
+                        <Grid item xs={2} md={4} />
                     </Grid>
                 </div>
             </React.Fragment>

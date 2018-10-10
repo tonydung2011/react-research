@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import {
     colors
 } from '@internal/styles'
-import { AppConfig } from '@internal/constants';
+import { AppConfig } from '@internal/constants'
 
 const SocialConnect = ({
     provider,

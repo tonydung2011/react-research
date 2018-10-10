@@ -1,5 +1,4 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import {
     RadialChart,
@@ -39,34 +38,27 @@ const HoverSkillChart = ({
     skill,
     classes
 }) => (
-    <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-        >
-            <ChartSkillItemContainer className='pad15'>
-                <ChartHoverWrapper className={classes.chartSkillWrapper}>
-                    <RadialChart
-                        data={skill.chart}
-                        width={200}
-                        height={200}
-                        innerRadius={80}
-                        radius={90}
-                        colorType='literal'
-                    />
-                </ChartHoverWrapper>
-                <Typography variant='subheading' align='center' className={classnames(classes.centerNumber)}>
-                    {skill.number}
-                </Typography>
-                <HoverText className={classes.skillTitle}>
-                    {skill.title}
-                </HoverText>
-                <Typography variant='body2' align='center'>
-                    {skill.description}
-                </Typography>
-            </ChartSkillItemContainer>
-        </Grid>
+    <ChartSkillItemContainer className='pad15'>
+        <ChartHoverWrapper className={classes.chartSkillWrapper}>
+            <RadialChart
+                data={skill.chart}
+                width={200}
+                height={200}
+                innerRadius={80}
+                radius={90}
+                colorType='literal'
+            />
+        </ChartHoverWrapper>
+        <Typography variant='subheading' align='center' className={classnames(classes.centerNumber)}>
+            {skill.number}
+        </Typography>
+        <HoverText className={classes.skillTitle}>
+            {skill.title}
+        </HoverText>
+        <Typography variant='body2' align='center'>
+            {skill.description}
+        </Typography>
+    </ChartSkillItemContainer>
 )
 
 HoverSkillChart.propTypes = {

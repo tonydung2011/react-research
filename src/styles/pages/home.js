@@ -13,7 +13,7 @@ export default theme => ({
         backgroundSize: 'cover',
     },
     infoContainer: {
-        marginTop: '20%',
+        marginTop: window.innerHeight / 6,
     },
     nameTitle: {
         fontFamily: 'Montserrat-SemiBold',
@@ -90,8 +90,8 @@ export default theme => ({
         flex: 1,
     },
     getInTouchButton: {
-        marginTop: '20px',
-        marginBottom: '40px',
+        marginTop: '40px',
+        marginBottom: '20px',
         paddingLeft: '20px',
         paddingRight: '20px',
         paddingTop: '5px',
@@ -103,7 +103,12 @@ export default theme => ({
         }
     },
     contactContainer: {
-        backgroundImage: `url('${AppConfig.img.contactBackground}')`
+        backgroundImage: `url('${AppConfig.img.contactBackground}')`,
+        paddingTop: '40px',
+        paddingBottom: '40px',
+        backgroundPosition: '50% 30%',
+        backgroundRepeat: 'no-repeat',
+        marginTop: '200px',
     },
     contactMe: {
         color: colors.white,
@@ -112,8 +117,27 @@ export default theme => ({
         color: colors.white,
     },
     textField: {
+        paddingBottom: '5px',
+    },
+    textFieldInput: {
         color: colors.white,
-        paddingBottom: '10px',
-        backgroundColor: colors.white,
+    },
+    textFieldLabel: {
+        color: colors.white,
+        '&$formLabelFocused': {
+            color: colors.white,
+        },
+    },
+    formLabelFocused: {
+        color: colors.white,
+    },
+    textFieldBottomLine: {
+        borderBottom: `0.5px solid ${colors.white}`,
+        '&:focus': {
+            borderBottom: `1px solid ${colors.white}`,
+        },
+        '&:hover': {
+            borderBottom: `1px solid ${colors.white}`,
+        }
     }
 })

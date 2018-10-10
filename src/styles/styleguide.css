@@ -148,6 +148,36 @@
     margin-bottom: 40px
 }
 
+.margin80 {
+    margin: 80px
+}
+
+.marginTop80 {
+    margin-top: 80px
+}
+
+.marginBottom80 {
+    margin-bottom: 80px
+}
+
+.marginLeft80 {
+    margin-left: 80px
+}
+
+.marginRight80 {
+    margin-right: 80px
+}
+
+.marginX80 {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.marginY80 {
+    margin-top: 80px;
+    margin-bottom: 80px
+}
+
 .lowShadow {
     box-shadow: 3px 3px 1px rgb(184,184,184)
 }
