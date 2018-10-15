@@ -8,9 +8,11 @@ export default {
         contactBackground: 'https://firebasestorage.googleapis.com/v0/b/react-portfolio-fe7fb.appspot.com/o/agreement-business-businessmen-886465%20(1).jpg?alt=media&token=c851581c-d501-41ab-b0cc-5a24cb8372ce',
     },
     link: {
-        gmail: 'https://google.com',
+        gmail: 'mailto:tranngocdung.201194@gmail.com',
         facebook: 'https://facebook.com/tranngocdung.201194',
         linkedin: 'https://linkedin.com/in/tranngocdung201194',
+        skype: 'skype:live:ltv09ti04?add',
+        github: 'https://github.com/tonydung2011',
     },
     windowBreakpoint: {
         xs: 0,

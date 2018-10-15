@@ -5,6 +5,7 @@ import HomeView from './HomeView'
 
 const mapStateToProps = state => ({
     projects: state.project.projects,
+    skills: state.skill.skills,
 })
 
 const mapDispatchToProps = {

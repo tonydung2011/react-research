@@ -12,16 +12,19 @@ export default class Root extends Component {
     static propTypes = {
         children: PropTypes.element.isRequired,
         getProjectList: PropTypes.func.isRequired,
+        getSkillsList: PropTypes.func.isRequired,
     }
 
     static defaultProps = {
         children: <div />,
         getProjectList: () => {},
+        getSkillsList: () => {},
     }
 
     componentDidMount = () => {
         firebase.initializeApp(AppConfig.firebaseConfig)
         this.props.getProjectList()
+        this.props.getSkillsList()
     }
 
     render = () => (

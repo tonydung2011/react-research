@@ -13,6 +13,8 @@ export default {
     facebook: '#3A5EC7',
     likedin: '#0473B3',
     gmail: '#D40904',
+    github: '#343434',
+    skype: '#04ACF4',
     transparent: 'rgb(0, 0, 0, 0)',
     dim: 'rgba(0, 0, 0, 0.7)',
 }

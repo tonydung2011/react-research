@@ -35,7 +35,6 @@ class Home extends Component {
         super(props)
         this.state = {
             windowWidth: 360,
-            projects: this.props.projects,
             filterForWorkGrid: arg => arg,
             workCategory: 'all',
             guessName: '',
@@ -47,38 +46,22 @@ class Home extends Component {
     static propTypes = {
         classes: PropTypes.object.isRequired,
         projects: PropTypes.array.isRequired,
+        skills: PropTypes.array.isRequired,
     }
 
     static defaultProps = {
         toggleDrawer: () => {},
         history: {},
         projects: [],
+        skills: [],
     }
 
     componentDidMount = () => {
-        const temp = {}
-        AppLang.content.page.home.skill.forEach((skill) => {
-            Object.defineProperty(temp, skill.id, {
-                value: false,
-                writable: true,
-            })
-        })
-        this.setState({
-            skilChart: temp
-        })
         window.addEventListener('resize', this.updateWindowHeight)
     }
 
     componentWillUnmount = () => {
         window.removeEventListener('resize', this.updateWindowHeight)
-    }
-
-    componentWillReceiveProps = (newProps) => {
-        if (newProps.projects !== this.props.projects) {
-            this.setState({
-                projects: newProps.projects,
-            })
-        }
     }
 
     updateWindowHeight = e => this.setState({
@@ -168,6 +151,16 @@ class Home extends Component {
                                     provider='linkedin'
                                 />
                             </Grid>
+                            <Grid item >
+                                <SocialConnect
+                                    provider='skype'
+                                />
+                            </Grid>
+                            <Grid item >
+                                <SocialConnect
+                                    provider='github'
+                                />
+                            </Grid>
                         </Grid>
                         <div className='marginTop80' >
                             <Grid
@@ -225,16 +218,16 @@ class Home extends Component {
                         <CenterWrapper className='marginY80 padX15'>
                             <React.Fragment>
                                 <Typography variant='headline' align='center'>
-                                    {AppLang.content.page.home.careerTimeline}
+                                    {AppLang.content.page.home.skillHeadline}
                                 </Typography>
                                 <br />
                                 <Typography variant='body2' align='center'>
-                                    {AppLang.content.page.home.careerDescription}
+                                    {AppLang.content.page.home.skillDescription}
                                 </Typography>
                             </React.Fragment>
                         </CenterWrapper>
                         <Grid container justify='center' className='marginTop80 padX15' spacing={16}>
-                            {AppLang.content.page.home.skill.map(skill =>
+                            {this.props.skills.map(skill =>
                                 <Grid item xs={12} sm={6} md={3} key={skill.id}>
                                     <HoverSkillChart
                                         skill={skill}
@@ -246,7 +239,7 @@ class Home extends Component {
                         <CenterWrapper className='marginY40'>
                             <React.Fragment>
                                 <Typography variant='headline' align='center'>
-                                    {AppLang.content.page.home.careerTimeline}
+                                    {AppLang.content.page.home.projectHeadline}
                                 </Typography>
                                 <br />
                                 <Typography align='center' variant='display2'>
@@ -293,7 +286,7 @@ class Home extends Component {
                     <Grid item xs={false} md={1} />
                 </Grid>
                 <ImageGrid
-                    data={this.state.projects}
+                    data={this.props.projects}
                     filter={this.state.filterForWorkGrid}
                     columnWidth={UtilLib.getItemWidthFromWindowSizeBreakPoint(this.state.windowWidth, {
                         xs: 12, sm: 6, md: 3, lg: 2,
@@ -315,6 +308,37 @@ class Home extends Component {
                         className={classes.contactMeDescription}
                     >
                         {AppLang.content.page.home.contactMeDescription}
+                    </Typography>
+                    <br />
+                    <Grid
+                        container
+                        spacing={32}
+                        direction='row'
+                        justify='center'
+                    >
+                        <Grid item >
+                            <SocialConnect
+                                provider='gmail'
+                            />
+                        </Grid>
+                        <Grid item >
+                            <SocialConnect
+                                provider='linkedin'
+                            />
+                        </Grid>
+                        <Grid item >
+                            <SocialConnect
+                                provider='skype'
+                            />
+                        </Grid>
+                    </Grid>
+                    <br />
+                    <Typography
+                        variant='body1'
+                        align='center'
+                        className={classes.contactMeDescription}
+                    >
+                        {AppLang.content.page.home.bookMeeting}
                     </Typography>
                     <Grid
                         container

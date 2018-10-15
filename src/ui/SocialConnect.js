@@ -83,6 +83,52 @@ const SocialConnect = ({
             Icon = require('@internal/assets/linkedin.png') /* eslint-disable-line */
             link = AppConfig.link.linkedin
             break
+        case 'skype':
+            CircleWrapper = pose.div({
+                hoverable: true,
+                init: {
+                    border: '1px solid white',
+                    borderRadius: '50%',
+                    backgroundColor: colors.transparent,
+                    width: 40,
+                    height: 40,
+                    padding: 10,
+                },
+                hover: {
+                    border: '1px solid white',
+                    borderRadius: '50%',
+                    backgroundColor: colors.skype,
+                    width: 40,
+                    height: 40,
+                    padding: 10,
+                },
+            })
+            Icon = require('@internal/assets/skype.png') /* eslint-disable-line */
+            link = AppConfig.link.skype
+            break
+        case 'github':
+            CircleWrapper = pose.div({
+                hoverable: true,
+                init: {
+                    border: '1px solid white',
+                    borderRadius: '50%',
+                    backgroundColor: colors.transparent,
+                    width: 40,
+                    height: 40,
+                    padding: 10,
+                },
+                hover: {
+                    border: '1px solid white',
+                    borderRadius: '50%',
+                    backgroundColor: colors.github,
+                    width: 40,
+                    height: 40,
+                    padding: 10,
+                },
+            })
+            Icon = require('@internal/assets/github.png') /* eslint-disable-line */
+            link = AppConfig.link.github
+            break
         default:
             CircleWrapper = pose.div({
                 hoverable: true,

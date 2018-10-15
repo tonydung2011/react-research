@@ -31,6 +31,9 @@ export default {
                 mywork: 'My work',
                 careerTimeline: 'My Career Timeline',
                 careerDescription: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the normal number and letter characters of the alphabet. It\'s able to generate weird text symbols from the normal ASCII symbols that you are able to copy and paste, because all the characters in the right-hand box of the translator are funky characters from the unicode standard',
+                skillHeadline: 'My Technical Skill',
+                skillDescription: 'The following rating was set base on my closest performance review from my Project Manager and Techlead',
+                projectHeadline: 'My Projects',
                 career: [
                     {
                         title: 'Computer Science\'s Student',
@@ -51,68 +54,6 @@ export default {
                         description: 'After graduated from the Intern program. I continue to work at Groove as fulltime Developer. My role is React Native developer develop feature for both iOS and Android application.',
                     },
                 ],
-                skill: [
-                    {
-                        chart: [
-                            {
-                                angle: 3,
-                                color: 'white',
-                            }, {
-                                angle: 1,
-                                color: 'rgba(0, 0, 0, 0)'
-                            },
-                        ],
-                        title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
-                        id: 'skill-1',
-                        number: '70%',
-                    },
-                    {
-                        chart: [
-                            {
-                                angle: 3,
-                                color: 'white',
-                            }, {
-                                angle: 1,
-                                color: 'rgba(0, 0, 0, 0)'
-                            },
-                        ],
-                        title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
-                        id: 'skill-2',
-                        number: '70%',
-                    },
-                    {
-                        chart: [
-                            {
-                                angle: 3,
-                                color: 'white',
-                            }, {
-                                angle: 1,
-                                color: 'rgba(0, 0, 0, 0)'
-                            },
-                        ],
-                        title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
-                        id: 'skill-3',
-                        number: '70%',
-                    },
-                    {
-                        chart: [
-                            {
-                                angle: 3,
-                                color: 'white',
-                            }, {
-                                angle: 1,
-                                color: 'rgba(0, 0, 0, 0)',
-                            },
-                        ],
-                        title: 'React Native',
-                        description: 'This is an online "weird text translator". It converts normal text into weird text by using unusual unicode symbols which resemble the',
-                        id: 'skill-4',
-                        number: '70%',
-                    },
-                ],
                 badge: {
                     all: 'All',
                     reactnative: 'React Native',
@@ -120,7 +61,8 @@ export default {
                 },
                 getInTouch: 'Get In Touch',
                 contactMe: 'Contact me',
-                contactMeDescription: 'Contact me via Skype, Linkedin and Email',
+                contactMeDescription: 'By clicking the link below, you will be able to contact me via Email, Linkedin and Skype',
+                bookMeeting: 'Or you can leave a direct reminder message in my Google Calendar',
                 guessName: 'Name',
                 guessNamePlaceholder: 'Nick Fury',
                 guessEmail: 'Email',
